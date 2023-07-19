@@ -1,1 +1,44 @@
+/* Topbar flexbox */
+.topbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 
+}
+
+.topbar div {
+
+    font-size: 15px;
+
+
+}
+
+/* Build flexboxs for title, body, and buttons */
+
+/* Topbar flexbox */
+.mainsec {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.mainsec h1 {
+    font-size: 25px;
+    align-self: center;
+}
+
+.mainsec h2 {
+    font-size: 25px;
+    margin: auto;
+    width: 75%;
+
+}
+
+.mainsec button {
+
+    font-size: 25px;
+    width: 50%;
+    margin: auto;
+
+
+}
