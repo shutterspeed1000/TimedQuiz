@@ -4,7 +4,7 @@
 var timeEl = document.getElementById("time");
 
 // Selects element by id
-var qSec = document.getElementsByClassName(".mainsec");
+
 
 var secondsLeft = 10;
 
@@ -25,10 +25,21 @@ function setTime() {
   }, 1000);
 }
 
+document.getElementById("mainsection").innerHTML = '${secondsLeft}'
+
+
+
+
+
+
+
+
+
+
 
 setTime();
 
-document.mainsec.innerHTML = "";
+
 
 function question(){
 
@@ -46,7 +57,8 @@ var q1 = {
     a2: "class",
     a3: "style",
     a4: "variable",
-    ca: "style"
+    ca: "style",
+    qnum: "1"
 }
 
 
