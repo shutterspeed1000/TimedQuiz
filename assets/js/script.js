@@ -4,7 +4,7 @@
 var timeEl = document.getElementById("time");
 
 // Selects element by id
-var mainEl = document.getElementById("main");
+var qSec = document.getElementsByClassName(".mainsec");
 
 var secondsLeft = 10;
 
@@ -19,19 +19,34 @@ function setTime() {
       // Stops execution of action at set interval
       clearInterval(timerInterval);
       // Calls function to create and append image
-      sendMessage();
+    //   sendMessage();
     }
 
   }, 1000);
 }
 
-// // Function to create and append colorsplosion image
-// function sendMessage() {
-//   timeEl.textContent = " ";
-//   var imgEl = document.createElement("img");
-//   imgEl.setAttribute("src", "images/image_1.jpg");
-//   mainEl.appendChild(imgEl);
-
-
 
 setTime();
+
+document.mainsec.innerHTML = "";
+
+function question(){
+
+}
+
+
+
+
+
+// Question Bank Vars as Objects
+
+var q1 = {
+    question: "What is the HTML attribute used to define the internal CSS stylesheet?",
+    a1: "styles",
+    a2: "class",
+    a3: "style",
+    a4: "variable",
+    ca: "style"
+}
+
+
