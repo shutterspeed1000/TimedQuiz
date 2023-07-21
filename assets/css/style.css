@@ -42,3 +42,13 @@
 
 
 }
+
+/* Question Styles */
+.qbox {
+    display: inline-flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: stretch;
+}
