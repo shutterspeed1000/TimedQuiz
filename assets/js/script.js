@@ -18,7 +18,7 @@ var qbank1 = {
 var qbank2 = {
   question:
     "Questions 2",
-  a1: "Farts",
+  a1: "Test",
   a2: "class",
   a3: "style",
   a4: "variable",
@@ -70,7 +70,7 @@ function setTime() {
 function askQuestion() {
 //start time when quiz starts
 setTime()
-
+//Loop Here....
 
 var qnum = qbank2
 
