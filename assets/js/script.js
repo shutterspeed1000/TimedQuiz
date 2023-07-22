@@ -69,13 +69,12 @@ function setTime() {
 
 function askQuestion() {
 //start time when quiz starts
-
 setTime()
 
 
 var qnum = qbank2
 
-  document.getElementById("mainsection").innerHTML = `<h1>Time ${qnum.question}</h1>
+  document.getElementById("mainsection").innerHTML = `<h1>${qnum.question}</h1>
   <div class = qbox>
 
   <button class= "answer">${qnum.a1}</button>
