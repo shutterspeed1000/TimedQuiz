@@ -56,6 +56,8 @@ var correct = document.getElementById("correct");
 var wrong = document.getElementById("wrong");
 var submit = document.getElementById("submit");
 var init = document.getElementById("init");
+// var highscore = document.getElementById("highscore");
+var highbutton = document.getElementById("highbutton");
 
 var questionPicked = 0;
 var score = 0;
@@ -180,11 +182,13 @@ ba4.addEventListener("click", function () {
 submit.addEventListener("click", function() {
   event.preventDefault();
 var initials = document.querySelector("#init").value;
-return initials;
+localStorage.setItem("initials", initials);
+localStorage.setItem("score", score);
+highscore.setAttribute("style", "display: none");
+document.getElementById("restart").setAttribute("style", "display: block");
 });
 
-
-
+//Setup highscore page and endgame
 
 function endGame() {
   correct.setAttribute("style", "display: none");
@@ -193,5 +197,31 @@ function endGame() {
   questionpage.setAttribute("style", "display: none");
   endpage.setAttribute("style", "display: block");
   document.getElementById("score").textContent = score;
+//Ask for initials if current high score
+if (score > localStorage.getItem("score")) {
+highscore.setAttribute("style", "display: block");
+document.getElementById("restart").setAttribute("style", "display: none");
 }
 
+if (score < localStorage.getItem("score")){
+document.getElementById("restart").setAttribute("style", "display: block");
+}
+}
+
+
+highbutton.addEventListener("click", function() {
+highpage()
+})
+
+function highpage() {
+
+  document.getElementById("mainsection").innerHTML = `
+  
+  <h2>Current High Score</h2>
+  <h2>${localStorage.getItem("initials")} - ${localStorage.getItem("score")}</h2>
+
+  `
+  
+  
+
+}

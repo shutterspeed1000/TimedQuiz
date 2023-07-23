@@ -11,7 +11,7 @@
 
   <body>
     <div class="topbar">
-      <div>View Highscores</div>
+      <button id = "highbutton">View Highscore</button>
       <div id="time"></div>
     </div>
 
@@ -59,13 +59,20 @@
       </h2>
       <h2>
         Your final score is <span id="score"></span>.
+        <button id="restart">Restart</button>
       </h2>
 
-      <h2>Enter your initals</h2><input id="init">    </input><button id="submit">Submit</button>
+
+<section id = "highscore" style="display: none;">
+    <h2>You have a new high score!</h2>
+    <h2 style=>Enter your initals</h2>
+    <input id="init">    </input><button id="submit">Submit</button>
+</section>
+
     </div>
 
     </main>
 
-    <script src="assets/js/script.js" async defer></script>
+    <script src="assets/js/script.js"></script>
   </body>
 </html>
