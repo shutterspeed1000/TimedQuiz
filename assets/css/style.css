@@ -38,6 +38,13 @@
 
 }
 
+.result {
+    font-size: 25px;
+    margin: auto;
+    width: 100%;
+    text-align: center;
+}
+
 .mainsec button {
 background-color: white;
     font-size: 25px;

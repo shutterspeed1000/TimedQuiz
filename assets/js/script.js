@@ -8,7 +8,7 @@ const qbank = [
     a2: "class",
     a3: "style",
     a4: "variable",
-    ca: "1",
+    ca: 1,
   },
 
   {
@@ -17,7 +17,7 @@ const qbank = [
     a2: "class",
     a3: "style",
     a4: "variable",
-    ca: "3",
+    ca: 3,
   },
 
   {
@@ -26,8 +26,7 @@ const qbank = [
     a2: "class",
     a3: "style",
     a4: "variable",
-    ca: "2",
-   
+    ca: 2,
   },
 
   {
@@ -36,8 +35,7 @@ const qbank = [
     a2: "class",
     a3: "style",
     a4: "variable",
-    ca: "1",
-    
+    ca: 1,
   },
 ];
 
@@ -48,19 +46,26 @@ var startBtn = document.getElementById("start");
 
 var titlepage = document.getElementById("titlepage");
 var questionpage = document.getElementById("questionpage");
-var endpage = document.getElementById("endpage");
+var endpage = document.getElementById("endPage");
 var question = document.getElementById("question");
 var ba1 = document.getElementById("ba1");
 var ba2 = document.getElementById("ba2");
 var ba3 = document.getElementById("ba3");
 var ba4 = document.getElementById("ba4");
+var correct = document.getElementById("correct");
+var wrong = document.getElementById("wrong");
+var submit = document.getElementById("submit");
+var init = document.getElementById("init");
+
+var questionPicked = 0;
+var score = 0;
 
 startBtn.addEventListener("click", function () {
-  setTime();
+  // setTime();
   askQuestion();
 });
 
-var secondsLeft = 60;
+var secondsLeft = 500;
 
 function setTime() {
   // Sets interval in variable
@@ -69,22 +74,33 @@ function setTime() {
     timeEl.textContent = "Time: " + secondsLeft;
     console.log(secondsLeft);
 
-    if (secondsLeft === 0) {
+    if (secondsLeft <= 0) {
       // Stops execution of action at set interval
       clearInterval(timerInterval);
       // Calls function to create and append image
-      //   sendMessage();
+      endGame();
     }
   }, 1000);
 }
 
 function askQuestion() {
+
+  // Check if all questions have been asked before starting page
+  if (questionPicked == qbank.length) {
+    endGame();
+    return
+  }
+
+  // Set text for q and as and hide start page
+
   titlepage.setAttribute("style", "display: none");
   questionpage.setAttribute("style", "display: block");
 
-  var questionPicked = Math.floor(Math.random() * 3);
+  //Hide correct/wrong alerts
+  correct.setAttribute("style", "display: none");
+  wrong.setAttribute("style", "display: none");
 
-  // Set text for q and as
+
   question.textContent = `${qbank[questionPicked].question}`;
   ba1.textContent = `${qbank[questionPicked].a1}`;
   ba2.textContent = `${qbank[questionPicked].a2}`;
@@ -92,80 +108,89 @@ function askQuestion() {
   ba4.textContent = `${qbank[questionPicked].a4}`;
   currentAnswer = qbank[questionPicked].ca;
 
-  return currentAnswer
+  return currentAnswer;
 }
 
 // Check for correct answer when button pushed
 
-
-var answerClicked
+var answerClicked;
 
 
 ba1.addEventListener("click", function () {
   answerClicked = 1;
-  alert(1);
   if (answerClicked == currentAnswer) {
-    alert("Correct");
+    correct.setAttribute("style", "display: block");
+    wrong.setAttribute("style", "display: none");
+    questionPicked++;
+    score++;
     askQuestion();
   } else {
+    correct.setAttribute("style", "display: none");
+    wrong.setAttribute("style", "display: block");
     secondsLeft = secondsLeft - 5;
   }
 });
 
 ba2.addEventListener("click", function () {
   answerClicked = 2;
-  alert(2);
   if (answerClicked == currentAnswer) {
-    alert("Correct");
+    correct.setAttribute("style", "display: block");
+    wrong.setAttribute("style", "display: none");
+    questionPicked++;
+    score++;
     askQuestion();
   } else {
+    correct.setAttribute("style", "display: none");
+    wrong.setAttribute("style", "display: block");
     secondsLeft = secondsLeft - 5;
   }
 });
 
 ba3.addEventListener("click", function () {
-  alert(3);
   answerClicked = 3;
   if (answerClicked == currentAnswer) {
-    alert("Correct");
+    correct.setAttribute("style", "display: block");
+    wrong.setAttribute("style", "display: none");
+    questionPicked++;
+    score++;
     askQuestion();
   } else {
+    correct.setAttribute("style", "display: none");
+    wrong.setAttribute("style", "display: block");
     secondsLeft = secondsLeft - 5;
   }
 });
 
 ba4.addEventListener("click", function () {
-  alert(4);
   answerClicked = 4;
   if (answerClicked == currentAnswer) {
-    alert("Correct");
+    correct.setAttribute("style", "display: block");
+    wrong.setAttribute("style", "display: none");
+    questionPicked++;
+    score++;
     askQuestion();
   } else {
+    correct.setAttribute("style", "display: none");
+    wrong.setAttribute("style", "display: block");
     secondsLeft = secondsLeft - 5;
   }
 });
 
-// document.getElementById("mainsection").innerHTML = `<h1>${qbank[questionPicked].question}</h1>`
+//submit initials and score to local storage
+submit.addEventListener("click", function() {
+  event.preventDefault();
+var initials = document.querySelector("#init").value;
+return initials
+});
 
-//   <div class = qbox>
 
-//   <button class= "answer" id="ba1">${qbank[questionPicked].a1}</button>
-//   <button class= "answer" id="ba2">${qbank[questionPicked].a2}</button>
-//   <button class= "answer" id="ba3">${qbank[questionPicked].a3}</button>
-//   <button class= "answer" id="ba4">${qbank[questionPicked].a4}</button>
 
-//   </div>`
-//   var corectAnswer = qbank[qbank[questionPicked].ca]
-//   var answerClicked
+function endGame() {
+  correct.setAttribute("style", "display: none");
+  wrong.setAttribute("style", "display: none");
+  titlepage.setAttribute("style", "display: none");
+  questionpage.setAttribute("style", "display: none");
+  endpage.setAttribute("style", "display: block");
+  document.getElementById("score").textContent = score;
+}
 
-//   // Buttons for answers
-//   var ba1 = document.getElementById("ba1");
-//   var ba2 = document.getElementById("ba2");
-//   var ba3 = document.getElementById("ba3");
-//   var ba4 = document.getElementById("ba4");
-
-// ba1.addEventListener("click", function () {
-//   var answerClicked = 1
-//   })
-
-// return corectAnswer,answerClicked
