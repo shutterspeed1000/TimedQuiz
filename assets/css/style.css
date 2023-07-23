@@ -19,6 +19,10 @@
 .mainsec {
     display: flex;
     flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: normal;
 
 }
 
@@ -35,20 +39,47 @@
 }
 
 .mainsec button {
-
+background-color: white;
     font-size: 25px;
     width: 50%;
     margin: auto;
-
-
+}
+.mainsec button:hover {
+    background-color: blue;
 }
 
 /* Question Styles */
 .qbox {
-    display: inline-flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    align-content: stretch;
+    align-content: center;
+    gap: 20px;
+    /* max-width: 75%; */
+
+
+
+}
+
+.answer {
+    display: block;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
+    order: 0;
+    /* max-width: 25%; */
+    padding: 20px
+}
+
+.qbox button {
+    background-color: white;
+
+}
+
+.qbox button:hover {
+    background-color: blue;
+
 }

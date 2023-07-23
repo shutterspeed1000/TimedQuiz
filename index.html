@@ -1,49 +1,64 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html>
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="./assets/css/style.css">
-</head>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
 
-<body>
+  <body>
     <div class="topbar">
-        <div>View Highscores</div>
-        <div id="time"></div>
+      <div>View Highscores</div>
+      <div id="time"></div>
     </div>
-
 
     <main id="mainsection" class="mainsec">
 
-        <h1>Coding Quiz Challenge</h1>
+     <!-- Main Screen -->
 
-        <h2>Try to answer the following code-related questionwithin the time limit.
-            Keep in mind that incorrect answers will penalize your scoretime by 10 seconds.</h2>
+     <div id=titlepage class = "mainsec">
+      <h1>Coding Quiz Challenge</h1>
 
-        <button id="start">Start Quiz</button>
+      <h2>
+        Try to answer the following code-related question within the time limit.
+        Keep in mind that incorrect answers will penalize your scoretime by 10
+        seconds.
+      </h2>
 
+      <button id="start">Start Quiz</button>
+    </div>
+
+<!-- Question Screen -->
+
+    <div class = "qbox" id="questionpage" style="display: none;">
+      
+
+      <h2 id="question" class = "mainsec">
+        kjhkjhkjhiuyibuy oiuiyiuybiybiu ohnuyiubyiuby oiunouyoiuyboybob
+      </h2>
+       <button class= "answer" id="ba1">text</button>
+       <button class= "answer" id="ba2">text</button>
+       <button class= "answer" id="ba3">text</button>
+       <button class= "answer" id="ba4">text</button>
+    </div>
+
+<!-- Scorescreen -->
+
+    <div class = "endpage mainsec" style="display: none";>
+      
+
+      <h2>
+        Questiongtgeogheoiguhgiuo goihgeogewhigeuhegi iguhiguhgeiugehiugg greogrehigerhiuh
+      </h2>
+
+      <button id="start">Start Quiz</button>
+    </div>
 
     </main>
 
-
-
-
-
-
-
     <script src="assets/js/script.js" async defer></script>
-
-
-
-
-</body>
-
+  </body>
 </html>
