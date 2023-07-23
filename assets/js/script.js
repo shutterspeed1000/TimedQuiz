@@ -180,8 +180,9 @@ ba4.addEventListener("click", function () {
 submit.addEventListener("click", function() {
   event.preventDefault();
 var initials = document.querySelector("#init").value;
-return initials
+return initials;
 });
+
 
 
 
