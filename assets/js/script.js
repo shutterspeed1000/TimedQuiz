@@ -12,30 +12,78 @@ const qbank = [
   },
 
   {
-    question: "Questions 2",
-    a1: "Test",
-    a2: "class",
-    a3: "style",
-    a4: "variable",
+    question: "Commonly used data types DO NOT include:",
+    a1: "strings",
+    a2: "booleans",
+    a3: "alerts",
+    a4: "numbers",
     ca: 3,
   },
 
   {
-    question: "Question 3",
-    a1: "Styles",
-    a2: "class",
-    a3: "style",
-    a4: "variable",
-    ca: 2,
+    question: "The condition in an if/else statement is enclosed with ________.",
+    a1: "quotes",
+    a2: "curly brackets",
+    a3: "parenthesis",
+    a4: "square brackets",
+    ca: 3,
   },
 
   {
-    question: "Question 4?",
-    a1: "a4",
-    a2: "class",
-    a3: "style",
-    a4: "variable",
+    question: "Arrays in Javascript can be used to store ____________?",
+    a1: "numbers and strings",
+    a2: "other arrays",
+    a3: "booleans",
+    a4: "all of the above",
+    ca: 4,
+  },
+  {
+    question: "Javascript is an _______ language?",
+    a1: "object-oriented",
+    a2: "object-based",
+    a3: "procedural",
+    a4: "all of the above",
+    ca: 4,
+  },
+  {
+    question: "Which of the following keywords is used to define a variable in Javascript?",
+    a1: "var",
+    a2: "let",
+    a3: "Both A dnd B",
+    a4: "all of the above",
+    ca: 3,
+  },
+  {
+    question: "AWhich of the following methods can be used to display data in some form using Javascript?",
+    a1: "docuement.write()",
+    a2: "console.log()",
+    a3: "window.alert()",
+    a4: "all of the above",
+    ca: 4,
+  },
+  {
+    question: "How can a datatype be declared to be a constant type?",
+    a1: "const",
+    a2: "var",
+    a3: "let",
+    a4: "constant",
     ca: 1,
+  },
+  {
+    question: "What keyword is used to check whether a given property is valid or not?",
+    a1: "in",
+    a2: "is in",
+    a3: "exists",
+    a4: "lies",
+    ca: 1,
+  },
+  {
+    question: "When an operator’s value is NULL, the typeof returned by the unary operator is:",
+    a1: "boolean",
+    a2: "undefined",
+    a3: "object",
+    a4: "integer",
+    ca: 3,
   },
 ];
 
@@ -56,14 +104,14 @@ var correct = document.getElementById("correct");
 var wrong = document.getElementById("wrong");
 var submit = document.getElementById("submit");
 var init = document.getElementById("init");
-// var highscore = document.getElementById("highscore");
+
 var highbutton = document.getElementById("highbutton");
 
 var questionPicked = 0;
 var score = 0;
 
 startBtn.addEventListener("click", function () {
-  // setTime();
+  setTime();
   askQuestion();
 });
 
@@ -189,7 +237,6 @@ document.getElementById("restart").setAttribute("style", "display: block");
 });
 
 //Setup highscore page and endgame
-
 function endGame() {
   correct.setAttribute("style", "display: none");
   wrong.setAttribute("style", "display: none");
@@ -197,8 +244,9 @@ function endGame() {
   questionpage.setAttribute("style", "display: none");
   endpage.setAttribute("style", "display: block");
   document.getElementById("score").textContent = score;
+
 //Ask for initials if current high score
-if (score > localStorage.getItem("score")) {
+if (score > localStorage.getItem("score") || localStorage.getItem("score") == null) {
 highscore.setAttribute("style", "display: block");
 document.getElementById("restart").setAttribute("style", "display: none");
 }
@@ -208,20 +256,27 @@ document.getElementById("restart").setAttribute("style", "display: block");
 }
 }
 
+document.getElementById("restart").addEventListener("click", function() {
+  location.reload()
+  })
 
-highbutton.addEventListener("click", function() {
-highpage()
-})
 
-function highpage() {
 
-  document.getElementById("mainsection").innerHTML = `
-  
-  <h2>Current High Score</h2>
-  <h2>${localStorage.getItem("initials")} - ${localStorage.getItem("score")}</h2>
 
-  `
-  
-  
+// highbutton.addEventListener("click", function() {
 
-}
+// highpage()
+// })
+
+// //Display highscore page and set scored from local storage
+// function highpage() {
+//   alert("HB")
+// document.getElementById("highscores").setAttribute("style", "display: block");
+// // document.getElementById("HSName").textContent = localStorage.getItem("initials");
+// // document.getElementById("HSScore").textContent = localStorage.getItem("score"); 
+
+// }
+
+// document.getElementById("restarths").addEventListener("click", function() {
+//   location.reload()
+//   })
