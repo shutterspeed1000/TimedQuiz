@@ -20,7 +20,7 @@ THEN the game is over
 WHEN the game is over
 THEN I can save my initials and score
 
-## Table of Contents (Optional)
+## Table of Contents
 
 - [Features](#features)
 - [Link to live site](#link-to-live-site)
