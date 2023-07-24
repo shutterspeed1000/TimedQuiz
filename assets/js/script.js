@@ -122,7 +122,7 @@ startBtn.addEventListener("click", function () {
 });
 
 // time allowed for quiz
-var secondsLeft = 500;
+var secondsLeft = 60;
 
 // Timer function for quiz
 function setTime() {
