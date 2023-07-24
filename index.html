@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title></title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="./assets/css/style.css" />
-  </head>
 
-  <body>
-    <div class="topbar">
-      <button id = "highbutton">View Highscore</button>
-      <div id="time"></div>
-    </div>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title></title>
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
 
-    <main id="mainsection" class="mainsec">
+<body>
+  <div class="topbar">
+    <button id="highbutton">View Highscore</button>
+    <div id="time"></div>
+  </div>
 
-     <!-- Main Screen -->
+  <main id="mainsection" class="mainsec">
 
-     <div id=titlepage class = "mainsec">
+    <!-- Main Screen -->
+
+    <div id=titlepage class="mainsec">
       <h1>Coding Quiz Challenge</h1>
 
       <h2>
@@ -31,48 +32,59 @@
       <button id="start">Start Quiz</button>
     </div>
 
-<!-- Question Screen -->
+    <!-- Question Screen -->
 
-    <div class = "qbox" id="questionpage" style="display: none;">
-      
+    <div class="qbox" id="questionpage" style="display: none;">
 
-      <h2 id="question" class = "mainsec">
+
+      <h2 id="question" class="mainsec">
         kjhkjhkjhiuyibuy oiuiyiuybiybiu ohnuyiubyiuby oiunouyoiuyboybob
       </h2>
-       <button class= "answer" id="ba1">text</button>
-       <button class= "answer" id="ba2">text</button>
-       <button class= "answer" id="ba3">text</button>
-       <button class= "answer" id="ba4">text</button>
-       <h2 class = "result" id="correct" style="display: none;">Correct!</h2>
-       <h2 class = "result" id="wrong" style="display: none;">Wrong!<h2/>
+      <button class="answer" id="ba1">text</button>
+      <button class="answer" id="ba2">text</button>
+      <button class="answer" id="ba3">text</button>
+      <button class="answer" id="ba4">text</button>
+      <h2 class="result" id="correct" style="display: none;">Correct!</h2>
+      <h2 class="result" id="wrong" style="display: none;">Wrong!
+        <h2 />
     </div>
 
-   
 
+  </main>
 
-<!-- Scorescreen -->
+    <!-- Scorescreen -->
 
-    <div id="endPage" class = "mainsec" style="display: none";>
-      
+    <section id="endPage" class="score" style="display: none" ;>
+
       <h2>
         Game Over!
       </h2>
       <h2>
-        Your final score is <span id="score"></span>.
+        Your final score is <span id="score"></span>. </h2>
         <button id="restart">Restart</button>
-      </h2>
+     
+    <section/>
 
+    <section class="score" id="highscore" style="display: none;">
+      <h2>You have a new high score!</h2>
+      <h2>Enter your initals</h2>
+      <input id="init"></input>
+      <button id="submit">Submit</button>
+    </section>
 
-<section id = "highscore" style="display: none;">
-    <h2>You have a new high score!</h2>
-    <h2 style=>Enter your initals</h2>
-    <input id="init">    </input><button id="submit">Submit</button>
-</section>
+    <section id="highscores" style="display: none;">
+      <h2>High Score</h2>
+      <h2 class="HSName">Name</h2>
+      <h2 class="HSScore">Score</h2>
+      <button id="restarths">Restart app</button>
+
+    </section>
 
     </div>
 
-    </main>
+  
 
-    <script src="assets/js/script.js"></script>
-  </body>
+  <script src="assets/js/script.js"></script>
+</body>
+
 </html>
