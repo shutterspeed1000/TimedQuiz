@@ -52,37 +52,36 @@
 
   </main>
 
-    <!-- Scorescreen -->
+  <!-- Scorescreen -->
 
-    <section id="endPage" class="score" style="display: none" ;>
+  <section id="endPage" class="score" style="display: none" ;>
 
-      <h2>
-        Game Over!
-      </h2>
-      <h2>
-        Your final score is <span id="score"></span>. </h2>
-        <button id="restart">Restart</button>
-     
-    <section/>
+    <h2>
+      Game Over!
+    </h2>
+    <h2>
+      Your final score is <span id="score"></span>. </h2>
+    <button id="restart">Restart</button>
 
-    <section class="score" id="highscore" style="display: none;">
-      <h2>You have a new high score!</h2>
-      <h2>Enter your initals</h2>
-      <input id="init"></input>
-      <button id="submit">Submit</button>
-    </section>
+  </section>
 
-    <section id="highscores" style="display: none;">
-      <h2>High Score</h2>
-      <h2 class="HSName">Name</h2>
-      <h2 class="HSScore">Score</h2>
-      <button id="restarths">Restart app</button>
+  <form class="score" id="highscore" style="display: none;">
+    <h2>You have a new high score!</h2>
+    <h2>Enter your initals</h2>
+    <!-- RegEx added to verify initials are 1-3 letters long, letters only -->
+    <input id="init" placeholder="Initials" required pattern="^[A-Za-z]{1,3}$">
+    <button id="submit">Submit</button>
+  </form>
 
-    </section>
+  <section class="score" id="highscores" style="display: none;">
+    <h2>Curret High Score</h2>
+    <h2 id="HSName">Name</h2>
+    <h2 id="HSScore">Score</h2>
+    <button id="restarths">Return to Main Screen</button>
+    <button id="clearhs">Clear High Scores and return to Main Menu</button>
 
-    </div>
+  </section>
 
-  
 
   <script src="assets/js/script.js"></script>
 </body>

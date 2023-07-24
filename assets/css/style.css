@@ -15,7 +15,6 @@
 
 /* Build flexboxs for title, body, and buttons */
 
-/* Topbar flexbox */
 .mainsec {
     display: flex;
     flex-direction: column;
@@ -47,11 +46,12 @@
 }
 
 .mainsec button {
-background-color: white;
+    background-color: white;
     font-size: 25px;
     width: 50%;
     margin: auto;
 }
+
 .mainsec button:hover {
     background-color: blue;
 }
@@ -110,13 +110,14 @@ background-color: white;
     /* max-width: 25%; */
     padding: 20px
 }
+
 .score h2 {
     display: block;
-  flex-grow: 0;
-  flex-shrink: 1;
-  flex-basis: auto;
-  align-self: auto;
-  order: 0;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
+    order: 0;
 
 }
 
@@ -131,6 +132,7 @@ background-color: white;
     order: 0;
 
 }
+
 .score button:hover {
     background-color: blue;
-} 
+}

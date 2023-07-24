@@ -21,7 +21,8 @@ const qbank = [
   },
 
   {
-    question: "The condition in an if/else statement is enclosed with ________.",
+    question:
+      "The condition in an if/else statement is enclosed with ________.",
     a1: "quotes",
     a2: "curly brackets",
     a3: "parenthesis",
@@ -46,7 +47,8 @@ const qbank = [
     ca: 4,
   },
   {
-    question: "Which of the following keywords is used to define a variable in Javascript?",
+    question:
+      "Which of the following keywords is used to define a variable in Javascript?",
     a1: "var",
     a2: "let",
     a3: "Both A dnd B",
@@ -54,7 +56,8 @@ const qbank = [
     ca: 3,
   },
   {
-    question: "AWhich of the following methods can be used to display data in some form using Javascript?",
+    question:
+      "AWhich of the following methods can be used to display data in some form using Javascript?",
     a1: "docuement.write()",
     a2: "console.log()",
     a3: "window.alert()",
@@ -70,7 +73,8 @@ const qbank = [
     ca: 1,
   },
   {
-    question: "What keyword is used to check whether a given property is valid or not?",
+    question:
+      "What keyword is used to check whether a given property is valid or not?",
     a1: "in",
     a2: "is in",
     a3: "exists",
@@ -78,7 +82,8 @@ const qbank = [
     ca: 1,
   },
   {
-    question: "When an operator’s value is NULL, the typeof returned by the unary operator is:",
+    question:
+      "When an operator’s value is NULL, the typeof returned by the unary operator is:",
     a1: "boolean",
     a2: "undefined",
     a3: "object",
@@ -86,12 +91,13 @@ const qbank = [
     ca: 3,
   },
 ];
+// end question section.........................
 
-//Timer for game/updates header
+// Start code
+
+// Variables for objects on page
 var timeEl = document.getElementById("time");
-
 var startBtn = document.getElementById("start");
-
 var titlepage = document.getElementById("titlepage");
 var questionpage = document.getElementById("questionpage");
 var endpage = document.getElementById("endPage");
@@ -102,21 +108,23 @@ var ba3 = document.getElementById("ba3");
 var ba4 = document.getElementById("ba4");
 var correct = document.getElementById("correct");
 var wrong = document.getElementById("wrong");
-var submit = document.getElementById("submit");
+var submit = document.getElementById("highscore");
 var init = document.getElementById("init");
-
 var highbutton = document.getElementById("highbutton");
-
+var highscores = document.getElementById("highscores");
 var questionPicked = 0;
 var score = 0;
 
+// Start button clicked - starts timer and questions
 startBtn.addEventListener("click", function () {
   setTime();
   askQuestion();
 });
 
+// time allowed for quiz
 var secondsLeft = 500;
 
+// Timer function for quiz
 function setTime() {
   // Sets interval in variable
   var timerInterval = setInterval(function () {
@@ -133,16 +141,15 @@ function setTime() {
   }, 1000);
 }
 
+// Ask question function - edits page
 function askQuestion() {
-
   // Check if all questions have been asked before starting page
   if (questionPicked == qbank.length) {
     endGame();
-    return
+    return;
   }
 
   // Set text for q and as and hide start page
-
   titlepage.setAttribute("style", "display: none");
   questionpage.setAttribute("style", "display: block");
 
@@ -150,21 +157,17 @@ function askQuestion() {
   correct.setAttribute("style", "display: none");
   wrong.setAttribute("style", "display: none");
 
-
+  // Set text on question page
   question.textContent = `${qbank[questionPicked].question}`;
   ba1.textContent = `${qbank[questionPicked].a1}`;
   ba2.textContent = `${qbank[questionPicked].a2}`;
   ba3.textContent = `${qbank[questionPicked].a3}`;
   ba4.textContent = `${qbank[questionPicked].a4}`;
   currentAnswer = qbank[questionPicked].ca;
-
-  return currentAnswer;
 }
 
 // Check for correct answer when button pushed
-
 var answerClicked;
-
 
 ba1.addEventListener("click", function () {
   answerClicked = 1;
@@ -226,18 +229,21 @@ ba4.addEventListener("click", function () {
   }
 });
 
-//submit initials and score to local storage
-submit.addEventListener("click", function() {
+// Highscore and game ending sections
+
+//submit initials and score to local storage if currently the best score
+submit.addEventListener("submit", function () {
   event.preventDefault();
-var initials = document.querySelector("#init").value;
-localStorage.setItem("initials", initials);
-localStorage.setItem("score", score);
-highscore.setAttribute("style", "display: none");
-document.getElementById("restart").setAttribute("style", "display: block");
+  var initials = document.querySelector("#init").value;
+  localStorage.setItem("initials", initials);
+  localStorage.setItem("score", score);
+  submit.setAttribute("style", "display: none");
+  document.getElementById("restart").setAttribute("style", "display: block");
 });
 
-//Setup highscore page and endgame
+//Setup highscore page and endgame page - stops timer
 function endGame() {
+  secondsLeft = 0;
   correct.setAttribute("style", "display: none");
   wrong.setAttribute("style", "display: none");
   titlepage.setAttribute("style", "display: none");
@@ -245,38 +251,43 @@ function endGame() {
   endpage.setAttribute("style", "display: flex");
   document.getElementById("score").textContent = score;
 
-//Ask for initials if current high score
-if (score > localStorage.getItem("score") || localStorage.getItem("score") == null) {
-highscore.setAttribute("style", "display: flex");
-document.getElementById("restart").setAttribute("style", "display: none");
+  //Ask for initials if current high score or if currently null
+  if (
+    score > localStorage.getItem("score") ||
+    localStorage.getItem("score") == null
+  ) {
+    highscore.setAttribute("style", "display: flex");
+    document.getElementById("restart").setAttribute("style", "display: none");
+  }
+  if (score < localStorage.getItem("score")) {
+    document.getElementById("restart").setAttribute("style", "display: block");
+  }
 }
+document.getElementById("restart").addEventListener("click", function () {
+  location.reload();
+});
 
-if (score < localStorage.getItem("score")){
-document.getElementById("restart").setAttribute("style", "display: block");
+// Opens highscore page
+highbutton.addEventListener("click", function () {
+  highpage();
+});
+
+document.getElementById("restarths").addEventListener("click", function () {
+  location.reload();
+});
+
+document.getElementById("clearhs").addEventListener("click", function () {
+  localStorage.clear();
+  localStorage.setItem("initials", "This could be you!");
+  localStorage.setItem("score", "0");
+  location.reload();
+});
+
+function highpage() {
+  titlepage.setAttribute("style", "display: none");
+  highscores.setAttribute("style", "display: flex");
+  document.getElementById("HSName").textContent =
+    localStorage.getItem("initials");
+  document.getElementById("HSScore").textContent =
+    "Score: " + localStorage.getItem("score");
 }
-}
-
-document.getElementById("restart").addEventListener("click", function() {
-  location.reload()
-  })
-
-
-
-
-// highbutton.addEventListener("click", function() {
-
-// highpage()
-// })
-
-// //Display highscore page and set scored from local storage
-// function highpage() {
-//   alert("HB")
-// document.getElementById("highscores").setAttribute("style", "display: block");
-// // document.getElementById("HSName").textContent = localStorage.getItem("initials");
-// // document.getElementById("HSScore").textContent = localStorage.getItem("score"); 
-
-// }
-
-// document.getElementById("restarths").addEventListener("click", function() {
-//   location.reload()
-//   })
