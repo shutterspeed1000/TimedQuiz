@@ -242,12 +242,12 @@ function endGame() {
   wrong.setAttribute("style", "display: none");
   titlepage.setAttribute("style", "display: none");
   questionpage.setAttribute("style", "display: none");
-  endpage.setAttribute("style", "display: block");
+  endpage.setAttribute("style", "display: flex");
   document.getElementById("score").textContent = score;
 
 //Ask for initials if current high score
 if (score > localStorage.getItem("score") || localStorage.getItem("score") == null) {
-highscore.setAttribute("style", "display: block");
+highscore.setAttribute("style", "display: flex");
 document.getElementById("restart").setAttribute("style", "display: none");
 }
 
