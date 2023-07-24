@@ -44,7 +44,7 @@ const qbank = [
     a2: "object-based",
     a3: "procedural",
     a4: "all of the above",
-    ca: 4,
+    ca: 1,
   },
   {
     question:
